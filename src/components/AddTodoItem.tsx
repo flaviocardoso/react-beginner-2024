@@ -16,7 +16,7 @@ export default function AddTodoItem({ onSubmit }: AddTodoItemProps) {
     <form className="flex" onSubmit={handleSubmit}>
       <input 
       placeholder="What needs to be done?"
-      className="rounded-s-md grow border border-gray-400 p-2"
+      className="rounded-s-md grow border  border-gray-400 p-2 focus:border-gray-800 focus:outline-none focus:ring-0"
       value={input}
       onChange={(e) => setInput(e.target.value)}
       />

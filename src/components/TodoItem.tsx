@@ -4,7 +4,7 @@ import { TODO } from "../types/todo";
 interface TodoItemProps {
   todo: TODO;
   onCompletedChange: (id: number, completed: boolean) => void;
-  onRemove: (id: number) => void
+  onRemove: (id: number) => void;
 }
 
 export default function TodoItem({
@@ -13,7 +13,7 @@ export default function TodoItem({
   onRemove,
 }: TodoItemProps) {
   return (
-    <div className="flex gap-2">
+    <div className="flex items-center gap-1">
       <label className="grow flex items-center gap-2 border rounded-md p-2 border-gray-400 bg-white hover:bg-slate-50">
         <input
           type="checkbox"
@@ -25,15 +25,9 @@ export default function TodoItem({
           {title}
         </span>
       </label>
-      <div className="flex items-center">
-        <button 
-          type="button"
-          onClick={() => onRemove(id)}
-        >
-        <Trash2 size={24} />
-
-        </button>
-      </div>
+      <button className="p-2" type="button" onClick={() => onRemove(id)}>
+        <Trash2 size={20} className="text-gray-500" />
+      </button>
     </div>
   );
 }
