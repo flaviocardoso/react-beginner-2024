@@ -1,14 +1,8 @@
-import { TODO } from "../types/todo";
+import { useTodos } from "../lib/useTodo";
 
-interface TodoSummaryProps {
-  todos: TODO[];
-  deleteAllCompleted: () => void;
-}
-export default function TodoSummary({
-  todos,
-  deleteAllCompleted,
-}: TodoSummaryProps) {
-  const completedTodos = todos.filter((todo) => todo.completed);
+export default function TodoSummary() {
+  const {todos,removeAllCompletedTodos} = useTodos()
+  const completedTodos = [...todos].filter((todo) => todo.completed);
   return (
     <div className="text-center space-y-2">
       <p className="text-sm font-medium">
@@ -18,7 +12,7 @@ export default function TodoSummary({
         <button
           className=" text-red-500 hover:underline text-sm font-medium"
           type="button"
-          onClick={deleteAllCompleted}
+          onClick={removeAllCompletedTodos}
         >
           Delete all completed
         </button>
